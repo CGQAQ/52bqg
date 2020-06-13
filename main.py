@@ -37,7 +37,7 @@ def get_ep_list(content: str):
 
 def get_fiction_content(id: int, page_uri: str) -> str:
     url = f'{get_full_url(id)}{page_uri}'
-    page_content = download(url)
+    page_content = downloader.download(url)
     d = pq(page_content)
     d = d('#content')
     d: str = d.text()
@@ -59,7 +59,7 @@ if __name__ == '__main__':
 
     file = create_file(args.filename)
 
-    download = Downloader()
+    downloader = Downloader()
 
     for i in li:
         print(i['name'], end='')
