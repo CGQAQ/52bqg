@@ -79,4 +79,4 @@ if __name__ == '__main__':
         print('.', end='')
 
         print('成功！', end='\n')
-        time.sleep(0.3)
+        time.sleep(0.5)
