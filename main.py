@@ -26,7 +26,7 @@ def get_ep_list(content: str):
     # html body div.box_con div#list dl dd
     d = pq(content)
     d: pq = d('html body div.box_con div#list dl dd > a')
-    print(d.size())
+    print(f"共： {d.size()}章")
 
     ret = []
     d.each(lambda a, b: ret.append({'name': b.text, 'url': b.attrib['href']}))
