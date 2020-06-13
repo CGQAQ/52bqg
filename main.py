@@ -54,8 +54,6 @@ if __name__ == '__main__':
     a.add_argument('filename', default='fiction.txt', nargs='?', metavar='filename', )
     args = a.parse_args()
 
-    print(args.id)
-
     p = fetch_main_page(args.id)
     li = get_ep_list(p)
 
@@ -79,4 +77,4 @@ if __name__ == '__main__':
         print('.', end='')
 
         print('成功！', end='\n')
-        time.sleep(0.5)
+        time.sleep(1)
