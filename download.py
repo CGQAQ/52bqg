@@ -5,7 +5,7 @@ class Downloader:
         self.counter = 0
 
     def download(self, url: str)->str:
-        api = 'https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&country=all&ssl=all&anonymity=allr'
+        api = 'https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&country=JP&ssl=all&anonymity=allr'
         proxies = get(api).text
         proxies = proxies.split('\r\n')
         while True:
