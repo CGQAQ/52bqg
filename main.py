@@ -11,6 +11,8 @@ import time
 
 from argparse import ArgumentParser
 
+from download import Downloader
+
 
 def get_full_url(id: int) -> str:
     return f'https://www.52bqg.com/book_{id}/'
@@ -35,9 +37,7 @@ def get_ep_list(content: str):
 
 def get_fiction_content(id: int, page_uri: str) -> str:
     url = f'{get_full_url(id)}{page_uri}'
-    page_content = get(url, headers={
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0'}).content.decode(
-        'gbk')
+    page_content = download(url)
     d = pq(page_content)
     d = d('#content')
     d: str = d.text()
@@ -59,6 +59,8 @@ if __name__ == '__main__':
 
     file = create_file(args.filename)
 
+    download = Downloader()
+
     for i in li:
         print(i['name'], end='')
         print('\t下载中.', end='')
@@ -77,4 +79,4 @@ if __name__ == '__main__':
         print('.', end='')
 
         print('成功！', end='\n')
-        time.sleep(1)
+        # time.sleep(1)
